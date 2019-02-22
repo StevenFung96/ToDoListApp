@@ -30,7 +30,7 @@ class WelcomeScreen extends Component {
   }
 }
 
-class ToDo extends Component {
+class ToDoScreen extends Component {
   render() {
     return (
       <Provider store={store}>
@@ -40,21 +40,21 @@ class ToDo extends Component {
   }
 }
 
-class Settings extends Component {
+class SettingsScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Settings</Text>
+        <Text>Coming Soon!</Text>
       </View>
     );
   }
 }
 
-class Profile extends Component {
+class ProfileScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Profile</Text>
+        <Text>Coming Soon!</Text>
       </View>
     );
   }
@@ -62,8 +62,8 @@ class Profile extends Component {
 
 const ToDoList = createStackNavigator(
   {
-    ToDo: {
-      screen: ToDo,
+    ToDoScreen: {
+      screen: ToDoScreen,
       navigationOptions: ({ navigation }) => {
         return {
           headerTitle: 'To-Do-List',
@@ -76,9 +76,9 @@ const ToDoList = createStackNavigator(
   }
 );
 
-const ProfileStack = createStackNavigator({
-  Profile: {
-    screen: Profile,
+const Profile = createStackNavigator({
+  ProfileScreen: {
+    screen: ProfileScreen,
     navigationOptions: ({ navigation }) => {
       return {
         headerTitle: 'Profile',
@@ -90,9 +90,9 @@ const ProfileStack = createStackNavigator({
   }
 });
 
-const SettingsStack = createStackNavigator({
-  Settings: {
-    screen: Settings,
+const Settings = createStackNavigator({
+  SettingsScreen: {
+    screen: SettingsScreen,
     navigationOptions: ({ navigation }) => {
       return {
         headerTitle: 'Settings',
@@ -107,8 +107,8 @@ const SettingsStack = createStackNavigator({
 const DashboardTabNavigator = createMaterialTopTabNavigator(
   {
     ToDoList,
-    ProfileStack,
-    SettingsStack
+    Profile,
+    Settings
   },
   {
     navigationOptions: ({ navigation }) => {
@@ -144,10 +144,10 @@ const AppDrawerNavigator = createDrawerNavigator({
     screen: ToDoList
   },
   Profile: {
-    screen: ProfileStack
+    screen: Profile
   },
   Settings: {
-    screen: SettingsStack
+    screen: Settings
   }
 });
 
